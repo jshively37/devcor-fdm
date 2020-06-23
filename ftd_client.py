@@ -77,6 +77,9 @@ class FTDClient:
         self.bravado_client = SwaggerClient.from_url(
             f'https://{self.server_address}:{self.server_port}/apispec/ngfw.json',
             http_client=http_client,
-            config={'validate_responses': False}
+            config={
+                'validate_responses': False,
+                'use_models': False
+                }
             )
         return self.bravado_client
